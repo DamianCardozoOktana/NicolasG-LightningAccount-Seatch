@@ -1,2 +1,5 @@
-.THIS {
+.THIS span {
+  cursor: pointer;
+  color: rgb(0, 95, 178);
+  display: block;
 }

@@ -12,4 +12,13 @@
 		// Firt load, load all Accounts
 		helper.loadAllAccounts(component);
   },
+	viewContactsFromAccount: function(component, event, helper) {
+		console.log('viewContactsFromAccount');
+		var accountId = event.target.dataset.account;
+		if (accountId) {
+			helper.loadContactsFromAccount(component, accountId);
+		} else {
+			// prevent calling Service without AccountID
+		}
+	}
 })

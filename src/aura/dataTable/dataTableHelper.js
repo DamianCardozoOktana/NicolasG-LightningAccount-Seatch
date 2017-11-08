@@ -10,5 +10,8 @@
 				}
     });
 		$A.enqueueAction(action);
+	},
+	loadContactsFromAccount: function(component, accountId) {
+		console.log('helper, search Contacts from: ' + accountId);
 	}
 })
