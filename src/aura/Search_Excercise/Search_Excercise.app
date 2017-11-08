@@ -1,1 +1,3 @@
-<aura:application ></aura:application>
+<aura:application extends="force:slds">
+  <c:searchBar />
+</aura:application>

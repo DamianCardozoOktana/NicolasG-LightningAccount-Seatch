@@ -1,0 +1,4 @@
+<aura:component >
+  <ui:inputText placeholder="Search Accounts" label="Account Name" value="{! v.searchterm }" required="true" />
+  <c:dataTable />
+</aura:component>
