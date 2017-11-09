@@ -1,5 +1,10 @@
+.THIS.contacts-container {
+    padding: 10px 0;
+    margin-top: 20px;
+}
 .THIS .slds-card__body {
     display: table;
+    width: 100%;
 }
 
 .THIS .contact-info {

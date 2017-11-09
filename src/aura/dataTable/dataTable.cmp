@@ -3,9 +3,9 @@
   <aura:attribute name="dataTableHeaders" type="List"/>
   <aura:handler name="init" value="{! this }" action="{! c.init }"/>
   <aura:handler event="c:searchAccounts" action="{!c.handleAccountSearch}" />
-    <!-- phase="capture" -->
+  <aura:registerEvent name="searchContacts" type="c:searchContacts"/>
 
-  <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <table class="slds-table slds-table_bordered accounts-data slds-table_cell-buffer">
     <thead>
       <tr class="slds-text-title_caps">
         <aura:iteration items="{!v.dataTableHeaders}" var="header">
