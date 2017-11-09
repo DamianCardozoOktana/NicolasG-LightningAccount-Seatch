@@ -1,4 +1,8 @@
 <aura:component >
-  <ui:inputText placeholder="Search Accounts" label="Account Name" value="{! v.searchterm }" required="true" />
-  <c:dataTable />
+    <aura:attribute name="searchTerm" type="String" />
+    <aura:registerEvent name="searchAccounts" type="c:searchAccounts"/>
+
+    <ui:inputText placeholder="Search Accounts" label="Account Name"
+      value="{! v.searchTerm }" updateOn="keyup" keyup="{!c.searchAccounts}"/>
+    <c:dataTable />
 </aura:component>

@@ -1,0 +1,8 @@
+.THIS .slds-card__body {
+    display: table;
+}
+
+.THIS .contact-info {
+    width: 33%;
+    float: left;
+}

@@ -17,9 +17,10 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>All_Contacts</members>
         <members>Search_Excercise</members>
+        <members>allContacts</members>
         <members>dataTable</members>
+        <members>searchAccounts</members>
         <members>searchBar</members>
         <name>AuraDefinitionBundle</name>
     </types>
@@ -35,5 +36,5 @@
         <members>*</members>
         <name>StaticResource</name>
     </types>
-    <version>36.0</version>
+    <version>41.0</version>
 </Package>
