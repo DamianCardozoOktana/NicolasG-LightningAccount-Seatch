@@ -1,0 +1,4 @@
+<aura:component>
+    <lightning:button variant="neutral" label="Make dummy call"
+        iconName="utility:call" iconPosition="right" onclick="{! c.handleClick }" />
+</aura:component>
