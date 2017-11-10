@@ -1,4 +1,44 @@
 <aura:component>
-    <lightning:button variant="neutral" label="Make dummy call"
-        iconName="utility:call" iconPosition="right" onclick="{! c.handleClick }" />
+    <aura:attribute name="page" type="Integer" default="1" />
+    <aura:attribute name="perPage" type="Integer" default="10" />
+    <aura:attribute name="allItems" type="Integer" default="234" />
+    <aura:attribute name="elements" type="List" />
+
+    <lightning:button variant="neutral" label="Make dummy call" class="dummyCall"
+        iconName="utility:call" iconPosition="right" onclick="{! c.makeRequest }" />
+    <lightning:select name="selectItem" label="Items per page"
+        value="{!v.perPage}" class="dropdown">
+        <option value="5">5</option>
+        <option value="10" selected="true">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </lightning:select>
+    <lightning:buttonGroup>
+        <lightning:button iconName="utility:chevronleft" iconPosition="left"
+            onclick="{! c.prevPage }" disabled="{! v.page == 1 || v.elements.length == 0 }"/>
+        <lightning:button label="{! v.page }" disabled="true"/>
+        <lightning:button iconName="utility:chevronright" iconPosition="right"
+            onclick="{! c.nextPage }" disabled="{! v.elements.length == 0 }"/>
+    </lightning:buttonGroup>
+    <!-- it would be best to make another component -->
+    <lightning:layout horizontalAlign="left" multipleRows="true">
+        <aura:iteration items="{!v.elements}" var="element">
+            <lightning:layoutItem size="3" flexibility="grow" padding="around-small">
+                <article class="slds-tile">
+                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                        <a href="javascript:void(0);">{! element.name }</a>
+                    </h3>
+                    <div class="slds-tile__detail">
+                        <dl class="slds-list_horizontal slds-wrap">
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate">Tag Line:</dt>
+                            <dd class="slds-item_detail slds-truncate" title="Tag Line">{! element.tagline }</dd>
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate">Description:</dt>
+                            <dd class="slds-item_detail slds-truncate" title="Description">{! element.description }</dd>
+                        </dl>
+                    </div>
+                </article>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+    <lightning:spinner aura:id="mySpinner" class="slds-hide" size="large"/>
 </aura:component>
