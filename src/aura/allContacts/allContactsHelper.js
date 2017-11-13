@@ -1,6 +1,6 @@
 ({
 	loadContacts : function(component, accountId) {
-		var action = component.get("c.findContactsByAccount");
+		var action = component.get("c.getContactsByAccount");
 
 		action.setParams({"accountID" : accountId});
 		action.setCallback(this, function(response) {

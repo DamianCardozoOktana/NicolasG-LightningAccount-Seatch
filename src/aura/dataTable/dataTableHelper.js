@@ -1,6 +1,6 @@
 ({
 	loadAccounts : function(component, term) {
-		var action = component.get("c.findAccounts");
+		var action = component.get("c.getAccounts");
 
 		if (term) {
 			action.setParams({"searchKey" : term});
