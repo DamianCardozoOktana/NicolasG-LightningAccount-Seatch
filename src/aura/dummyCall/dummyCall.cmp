@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="page" type="Integer" default="1" />
     <aura:attribute name="perPage" type="Integer" default="10" />
     <aura:attribute name="allItems" type="Integer" default="234" />
@@ -13,7 +13,7 @@
         <option value="15">15</option>
         <option value="20">20</option>
     </lightning:select>
-    <lightning:buttonGroup>
+    <lightning:buttonGroup >
         <lightning:button iconName="utility:chevronleft" iconPosition="left"
             onclick="{! c.prevPage }" disabled="{! v.page == 1 || v.elements.length == 0 }"/>
         <lightning:button label="{! v.page }" disabled="true"/>

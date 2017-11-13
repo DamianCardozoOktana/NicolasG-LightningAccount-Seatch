@@ -33,7 +33,7 @@
             <div class="slds-truncate" title="{!account.Phone}">{!account.Phone}</div>
           </td>
           <td data-label="Type">
-            <div class="slds-truncate" title="{!account.Phone}">{!account.Phone}</div>
+            <div class="slds-truncate" title="{!account.Phone}">{!account.Type}</div>
           </td>
         </tr>
       </aura:iteration>
