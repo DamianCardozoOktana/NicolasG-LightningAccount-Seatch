@@ -1,12 +1,22 @@
 ({
 	searchAccounts : function(component, event, helper) {
-		if (event.getParams().keyCode == 13) {
-			var searchTerm = component.get('v.searchTerm');
-			console.log('searchAccounts!!');
-			console.log(searchTerm);
-			var appEvent = $A.get("e.c:searchAccounts");
+		var searchTerm = component.get('v.searchTerm'),
+			keyCode = event.getParams().keyCode,
+			appEvent = $A.get("e.c:searchAccounts");
+
+		if (searchTerm.length > 2 && keyCode == 13) {
+			// ENTER and Search
 			appEvent.setParams({"searchTerm" : searchTerm});
-			appEvent.fire();			
+			appEvent.fire();
+			appEvent = $A.get("e.c:clearContacts");
+			appEvent.fire();
+		}
+
+		if (searchTerm.length == 0 && keyCode == 8) {
+			appEvent.fire();
+			appEvent = $A.get("e.c:clearContacts");
+			appEvent.fire();
+
 		}
 	}
 })

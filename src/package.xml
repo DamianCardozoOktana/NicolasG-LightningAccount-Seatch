@@ -19,9 +19,12 @@
     <types>
         <members>Search_Excercise</members>
         <members>allContacts</members>
+        <members>clearContacts</members>
         <members>dataTable</members>
+        <members>dummyCall</members>
         <members>searchAccounts</members>
         <members>searchBar</members>
+        <members>searchContacts</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
