@@ -1,4 +1,19 @@
+.THIS.uiInputText {
+    padding: 20px;
+}
+
 .THIS label {
   color: rgb(0, 112, 210);
   display: block;
+  font-size: 15px;
+  max-resolution: 5px;
+}
+
+.THIS input {
+    font-size: 15px;
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
 }

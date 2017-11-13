@@ -1,39 +1,41 @@
-<aura:component >
-    <aura:attribute name="showContacts" type="Boolean" default="true"/>
-    <aura:attribute name="contactsSize" type="Integer" default="3"/>
+<aura:component controller="ContactsListController">
     <aura:attribute name="contacts" type="List"/>
-    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler event="c:searchContacts" action="{!c.handleContactsSearch}" />
+    <aura:handler event="c:clearContacts" action="{!c.handleClearContacts}" />
 
-    <lightning:card >
+    <lightning:card class="contacts-container">
         <aura:set attribute="title">
             <lightning:icon iconName="standard:groups" size="medium"/>
             <span>Contacts</span>
-            <aura:if isTrue="{!v.showContacts}">
-                ({! v.contactsSize })
+            <aura:if isTrue="{!v.contacts.length != 0}">
+                ({! v.contacts.length })
             </aura:if>
         </aura:set>
         <aura:set attribute="actions">
             <lightning:button label="New"/>
         </aura:set>
-        <aura:iteration items="{!v.contacts}" var="contact">
-            <article class="slds-tile slds-media slds-p-horizontal--small contact-info">
-                <div class="slds-media__figure">
-                  <span class="slds-icon_container" title="description of icon when needed">
-                    <lightning:icon iconName="standard:groups" size="medium"/>
-                  </span>
-                </div>
-                <div class="slds-media__body">
-                  <h3 class="slds-tile__title slds-truncate" title="Salesforce UX"><a href="javascript:void(0);">{!contact.name}</a></h3>
-                  <div class="slds-tile__detail">
-                    <dl class="slds-list_horizontal slds-wrap">
-                      <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">First Label:</dt>
-                      <dd class="slds-item_detail slds-truncate" title="Description for first label">Description for first label</dd>
-                      <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Second Label:</dt>
-                      <dd class="slds-item_detail slds-truncate" title="Description for second label">Description for second label</dd>
-                    </dl>
-                  </div>
-                </div>
-            </article>
-        </aura:iteration>
+        <aura:set attribute="body">
+            <aura:iteration items="{!v.contacts}" var="contact">
+                <article class="slds-tile slds-media slds-p-horizontal--small contact-info">
+                    <div class="slds-media__figure">
+                      <span class="slds-icon_container" title="description of icon when needed">
+                        <lightning:icon iconName="standard:groups" size="medium"/>
+                      </span>
+                    </div>
+                    <div class="slds-media__body">
+                      <h3 class="slds-tile__title slds-truncate" title="Salesforce UX"><a href="javascript:void(0);">{!contact.Name}</a></h3>
+                      <div class="slds-tile__detail">
+                        <dl class="slds-list_horizontal slds-wrap">
+                          <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">First Label:</dt>
+                          <dd class="slds-item_detail slds-truncate" title="Description for first label">Description for first label</dd>
+                          <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Second Label:</dt>
+                          <dd class="slds-item_detail slds-truncate" title="Description for second label">Description for second label</dd>
+                        </dl>
+                      </div>
+                    </div>
+                </article>
+            </aura:iteration>
+        </aura:set>
+
     </lightning:card>
 </aura:component>

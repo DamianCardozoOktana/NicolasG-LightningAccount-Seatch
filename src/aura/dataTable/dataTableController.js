@@ -10,20 +10,21 @@
 	        ]);
 
 		// Firt load, load all Accounts
-		helper.loadAllAccounts(component);
+		helper.loadAccounts(component);
 	},
-	viewContactsFromAccount: function(component, event, helper) {
-		console.log('viewContactsFromAccount');
-		var accountId = event.target.dataset.account;
+	viewContactsFromAccount: function(component, event, helper) {		
+		var accountId = event.target.dataset.account,
+			appEvent = $A.get("e.c:searchContacts");
+
 		if (accountId) {
-			helper.loadContactsFromAccount(component, accountId);
+			appEvent.setParams({"accountID" : accountId});
+			appEvent.fire();
 		} else {
 			// prevent calling Service without AccountID
 		}
 	},
 	handleAccountSearch: function(component, event, helper) {
-		console.log('handleAccountSearch');
 		var term = event.getParam('searchTerm');
-		console.log('Search for: ' + term)		
+		helper.loadAccounts(component, term);
 	}
 })
